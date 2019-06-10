@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title></title>
+ </head>
+ <body style="background-image: url(bg.jpg); height: all;">
+ 	<div class=""><span>раздавил</span><span class="score2"></span></div>
+ 	<div class=""><span>жуки</span><span class="summa1"></span></div>
+ 
+ </body>
+ <script type="text/javascript">
+ 	
+
+let score3 = 0;
+	let summa = 0;
+let interv= function(){
+	let newDiv = document.createElement('img');
+
+	document.body.appendChild(newDiv);
+	newDiv.src = "img.svg";
+	
+	let x = function (){
+		let levo = Math.random()*400 //случайное число до 5
+	let round1 = Math.round(levo) //округлить число 
+	let top = Math.random()*400 //случайное число до 5
+	let round3 = Math.round(top) //округлить число 
+	return levo;
+	}
+	newDiv.style.height="80px";
+	newDiv.style.width="80px";
+	newDiv.style.position = "absolute";
+	newDiv.style.marginLeft = x()+"px";
+	newDiv.style.marginTop = x()+"px";
+	summa = summa + 1;
+	document.querySelector(".summa1").innerHTML = summa;
+	newDiv.onclick = function(){
+		newDiv.style.display = "none";
+		score3 = score3 + 1;
+		document.querySelector(".score2").innerHTML = score3
+		
+	}
+		
+  }
+  let check = function(){
+  	if (score3 == summa-1) {alert("вы победили") ;
+  		clearInterval(t)}
+  		else{alert("вы проиграли");
+  	clearInterval(t)}
+  }
+let t = setInterval(interv,1000);
+
+setTimeout(check,10000);
+
+ </script>
+ </html>
